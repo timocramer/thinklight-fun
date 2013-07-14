@@ -115,7 +115,6 @@ static void morse_string(char *str) {
 
 static int lock(void) {
 	int fd;
-	char buf[6];
 	
 	/* if the file exists, fail. otherwise, create it */
 	fd = open(LOCKFILE, O_CREAT | O_EXCL | O_WRONLY, 0644);
@@ -133,7 +132,7 @@ static void unlock(void) {
 		perror("unlink " LOCKFILE);
 }
 
-int initial_status = TL_OFF;
+static int initial_status = TL_OFF;
 
 static void restore_status_and_exit(int s) {
 	(void) s;
