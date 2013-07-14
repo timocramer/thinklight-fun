@@ -41,9 +41,11 @@ void tl_off(void) {
 }
 
 void tl_toggle(void) {
-	if(tl_status() == TL_OFF)
+	int status = tl_status();
+	
+	if(status == TL_OFF)
 		tl_on();
-	else if(tl_status() == TL_ON)
+	else if(status == TL_ON)
 		tl_off();
 }
 
