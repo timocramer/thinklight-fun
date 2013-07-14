@@ -12,7 +12,7 @@
 #include "thinklight.h"
 
 #ifdef MORSE
-static char* morse_code(char x) {
+static const char* morse_code(char x) {
 	if(x >= 'a' && x <= 'z')
 		x &= ~0x20;
 	
@@ -79,7 +79,7 @@ static char* morse_code(char x) {
 #define AFTER_WORD (DIT * 4)
 
 static void morse_char(char c) {
-	char *p = morse_code(c);
+	const char *p = morse_code(c);
 	
 	if(p != NULL) {
 		while(*p != 0) {
