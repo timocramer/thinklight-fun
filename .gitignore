@@ -1,0 +1,6 @@
+*.o
+libthinklight.a
+tl-on
+tl-off
+tl-morse
+tl-strobo
