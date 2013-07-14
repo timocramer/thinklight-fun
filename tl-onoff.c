@@ -1,10 +1,12 @@
-#include <stdio.h>
+#include <unistd.h>
 
 #include "thinklight.h"
 
+#define ERROR_MESSAGE "Light Interface cannot be opened!\n"
+
 int main(void) {
 	if(tl_init()) {
-		fputs("Light Interface cannot be opened!\n", stderr);
+		write(2, ERROR_MESSAGE, sizeof(ERROR_MESSAGE) - 1);
 		return 1;
 	}
 	
