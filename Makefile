@@ -23,7 +23,7 @@ tl-off: tl-onoff.c libthinklight.a
 %.o: %.c thinklight.h
 	$(CC) -c -o $@ $(CFLAGS) $<
 
-libthinklight.a: thinklight.o
+libthinklight.a: tl_init.o tl_deinit.o tl_on.o tl_off.o tl_status.o tl_toggle.o
 	ar cr $@ $^
 	ranlib $@
 
