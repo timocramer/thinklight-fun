@@ -186,9 +186,7 @@ int main(int argc, char **argv) {
 		fprintf(stderr, "%s: No arguments!\n", argv[0]);
 		return 1;
 	}
-#endif
 	
-#ifdef MORSE
 	/* morse the arguments */
 	int i = 1;
 	while(1) {
