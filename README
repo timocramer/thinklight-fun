@@ -2,6 +2,6 @@ These are some programs I wrote when I found out, that there is an interface
 in the /proc directory where you can manipulate it.
 
 Currently there are 4 executables:
-- tl-on & tl-off: self explanatory
+- tl-on & tl-off & tl-toggle: self explanatory
 - tl-strobo: toggling the thinklight for a stroboscope effect
 - tl-morse: given a string, tl-morse blinks the morse-code

@@ -14,6 +14,8 @@ int main(void) {
 	tl_on();
 #elif defined OFF
 	tl_off();
+#elif defined TOGGLE
+	tl_toggle();
 #endif
 	
 	tl_deinit();
