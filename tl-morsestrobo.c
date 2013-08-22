@@ -184,6 +184,8 @@ int main(int argc, char **argv) {
 #ifdef MORSE
 	if(argc < 2) {
 		fprintf(stderr, "%s: No arguments!\n", argv[0]);
+		tl_deinit();
+		unlock();
 		return 1;
 	}
 	
