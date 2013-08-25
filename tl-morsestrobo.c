@@ -185,10 +185,7 @@ int main(int argc, char **argv) {
 	if(argc < 2) {
 		fputs(argv[0], stderr);
 		fputs(": No arguments!\n", stderr);
-		
-		tl_deinit();
-		unlock();
-		return 1;
+		goto finish;
 	}
 	
 	/* morse the arguments */
@@ -209,6 +206,7 @@ int main(int argc, char **argv) {
 	else
 		tl_off();
 	
+	finish:
 	tl_deinit();
 	unlock();
 #elif defined STROBO
