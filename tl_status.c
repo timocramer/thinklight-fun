@@ -6,8 +6,12 @@
 extern int light_fd;
 
 int tl_status(void) {
+#ifdef PROC_LEGACY
 	char buf[sizeof("status:\t\tof") - 1];
 	char n_or_f;
+#else
+	char buf[sizeof("0")];
+#endif
 	
 	if(light_fd < 0)
 		return TL_UNDEF;
@@ -17,6 +21,7 @@ int tl_status(void) {
 	if(read(light_fd, buf, sizeof(buf)) != sizeof(buf))
 		return TL_UNDEF;
 	
+#ifdef PROC_LEGACY
 	/* we only look if the char which should be
 	after the 'o' is an 'n' or an 'f'. */
 	n_or_f = buf[sizeof(buf) - 1];
@@ -26,4 +31,11 @@ int tl_status(void) {
 		return TL_OFF;
 	else
 		return TL_UNDEF;
+#else
+	/* we look for 0, which means off or something else, which means on */
+	if(buf[0] == '0')
+		return TL_OFF;
+	else
+		return TL_ON;
+#endif
 }

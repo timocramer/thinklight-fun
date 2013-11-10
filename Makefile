@@ -4,6 +4,9 @@ LDFLAGS=-L. -lthinklight
 PREFIX=/usr/local
 BINDIR=$(PREFIX)/bin
 
+# uncomment this to use the legacy file in the /proc-directory
+# CFLAGS+=-DPROC_LEGACY
+
 .PHONY: all clean install
 
 all: tl-on tl-off tl-morse tl-strobo tl-toggle
